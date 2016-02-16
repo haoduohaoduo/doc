@@ -7,7 +7,7 @@
 5. Beyond Compare    破解
 6. sublime text 或许 Atom
 7. Evernote 
-8. 360云盘，团队资料共享 账号：bigertech@qq.com    2014bg2014
+8. 360云盘，团队资料共享 账号：bigertech@qq.com 
 9. Chrome，Firefox
 10. hosts 域名绑定工具
 11. nginx
