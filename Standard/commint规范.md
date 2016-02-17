@@ -11,7 +11,11 @@
 ## commit_message_change_log
 Header部分只有一行，包括三个字段：type（必需）、scope（可选）和subject（必需）。
 
-格式： <type>(<scope>): <subject>
+格式：
+
+```
+<type>(<scope>): <subject>
+```
 
 例如： feat(login): 登录相关逻辑
 
