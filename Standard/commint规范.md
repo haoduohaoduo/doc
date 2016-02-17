@@ -33,7 +33,7 @@ Header部分只有一行，包括三个字段：type（必需）、scope（可�
 ###（2）scope
 scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
 ###（3）subject
-* subject是 commit 目的的简短描述，不超过50个字符。
+* subject是 commit 目的的简短描述，不超过50个字符。中英文都行
 * 以动词开头，使用第一人称现在时，比如change，而不是changed或changes
 * 第一个字母小写
 * 结尾不加句号（.）
