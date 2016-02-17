@@ -1,5 +1,7 @@
 #写出好的 commit message
 
+详细内容参考[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+
 ##为什幺要关注提交信息
 
 * 加快 Reviewing Code 的过程
@@ -51,14 +53,6 @@ scope用于说明 commit 影响的范围，比如数据层、控制层、视图�
 * 第一个字母小写
 * 结尾不加句号（.）
 
-### (4) 关闭 issue
-你也可以关闭某些 issue
-
-在 message 后面空一行 写上
-```
-Closes #123, #245, #992
-```
-详细内容参考[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 ## 2.2 Body
 Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。
 
