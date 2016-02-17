@@ -9,6 +9,19 @@
 * 总之一个好的提交信息，会帮助你提高项目的整体质量
 
 ## commit_message_change_log
+每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
+
+```
+<type>(<scope>): <subject>
+// 空一行
+<body>
+// 空一行
+<footer>
+```
+
+其中，Header 是必需的，Body 和 Footer 可以省略。
+不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。
+
 Header部分只有一行，包括三个字段：type（必需）、scope（可选）和subject（必需）。
 
 格式：
@@ -46,26 +59,64 @@ scope用于说明 commit 影响的范围，比如数据层、控制层、视图�
 Closes #123, #245, #992
 ```
 详细内容参考[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
-
-=========old
-
-## 基本要求
-* 第一行应该少于50个字。 随后是一个空行 第一行题目也可以写成：Fix issue #8976
-* 使用 fix（修复bug）, add（添加功能）, change（调整代码等） 而不是 fixed, added, changed
-* 请将每次提交限定于完成一次逻辑功能。并且可能的话，适当地分解为多次小更新，以便每次小型提交都更易于理解。
-
-## 例子
+## 2.2 Body
+Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。
 
 ```
-Fix issue #9527 message
+More detailed explanatory text, if necessary.  Wrap it to
+about 72 characters or so.
 
-小改直接就用一句话说清楚。
-大改的，自己建一个 Issue 说清楚情况、方案、变化。。。。
-其实最重要一点，commit log 是给人类看的，说清楚就好，不必太过拘谨，更不能写成只给机器看的东西。
+Further paragraphs come after blank lines.
+
+- Bullet points are okay, too
+- Use a hanging indent
+```
+
+有两个注意点。
+1. 使用第一人称现在时，比如使用change而不是changed或changes。
+2. 应该说明代码变动的动机，以及与以前行为的对比。
+
+## 2.3 Footer
+Footer 部分只用于两种情况。
+1. 不兼容变动
+如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。
 
 ```
-或者
+BREAKING CHANGE: isolate scope bindings definition has changed.
+
+    To migrate the code follow the example below:
+
+    Before:
+
+    scope: {
+      myAttr: 'attribute',
+    }
+
+    After:
+
+    scope: {
+      myAttr: '@',
+    }
+
+    The removed `inject` wasn't generaly useful for directives so there should be no code using it.
+```
+
+### 关闭 Issue
+如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。
+
+`Closes #234`
+也可以一次关闭多个 issue 。
+
+`Closes #123, #245, #992`
+
+## 2.4 Revert
+还有一种特殊情况，如果当前 commit 用于撤销以前的 commit，则必须以revert:开头，后面跟着被撤销 Commit 的 Header。
 
 ```
-Add feature #9527 message
+revert: feat(pencil): add 'graphiteWidth' option
 ```
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+
+Body部分的格式是固定的，必须写成This reverts commit &lt;hash>.，其中的hash是被撤销 commit 的 SHA 标识符。
+如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。
