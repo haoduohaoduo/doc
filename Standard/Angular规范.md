@@ -88,7 +88,7 @@ route中有多个参数时，更应该区分：
        ...
      }
 
-## 为了不暴露全局变量，应将每一段代码用立即执行函数包裹。`'use strict'` 写在函数内部（原因：http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html）
+## 为了不暴露全局变量，应将每一段代码用立即执行函数包裹。`'use strict'` 写在函数内部（[原因看这里](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)）
     
     //GOOD
     (function(){
