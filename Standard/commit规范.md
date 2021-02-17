@@ -2,7 +2,7 @@
 
 详细内容参考[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
-## 为什幺要关注提交信息
+## 为什么要关注提交信息
 
 * 加快 Reviewing Code 的过程
 * 帮助我们写好 release note
