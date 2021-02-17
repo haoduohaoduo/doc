@@ -35,7 +35,7 @@ Header部分只有一行，包括三个字段：type（必需）、scope（可�
 
 例如： feat(login): 登录相关逻辑
 
-###（1）type
+### 1.type
 
 * type用于说明 commit 的类别，只允许使用下面7个标识。
 * feat：新功能（feature）
@@ -48,11 +48,11 @@ Header部分只有一行，包括三个字段：type（必需）、scope（可�
 
 如果type为feat和fix，则该 commit 将肯定出现在 Change log 之中。其他情况（docs、chore、style、refactor、test）由你决定，要不要放入 Change log，建议是不要。
 
-###（2）scope
+### 2. scope
 
 scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
 
-###（3）subject
+### 3. subject
 
 * subject是 commit 目的的简短描述，不超过50个字符。中英文都行
 * 以动词开头，使用第一人称现在时，比如change，而不是changed或changes
@@ -82,7 +82,8 @@ Further paragraphs come after blank lines.
 
 Footer 部分只用于两种情况。
 
-1. 不兼容变动
+### 1. 不兼容变动
+
 如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。
 
 ```
@@ -105,7 +106,7 @@ BREAKING CHANGE: isolate scope bindings definition has changed.
     The removed `inject` wasn't generaly useful for directives so there should be no code using it.
 ```
 
-### 关闭 Issue
+### 2. 关闭 Issue
 
 如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。
 
