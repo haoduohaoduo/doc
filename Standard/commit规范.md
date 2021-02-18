@@ -181,7 +181,7 @@ npm install --save-dev husky
 
 至此就彻底配置完成啦。
 
-让我们来感受一下：
+让我们来感受一下：https://img12.360buyimg.com/uba/jfs/t21337/289/681073221/88718/eac5bc39/5b15340bN8af4d42f.gif
 
 <img src="https://img12.360buyimg.com/uba/jfs/t21337/289/681073221/88718/eac5bc39/5b15340bN8af4d42f.gif"/>
 
