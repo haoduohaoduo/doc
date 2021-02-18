@@ -129,6 +129,7 @@ Body部分的格式是固定的，必须写成This reverts commit &lt;hash>.，�
 如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。
 
 
+## 规范如何使用，如何逼迫自己必须遵守呢
 
 现在规范是有了，但是还需要一个工具自动帮我们检测我们编写的 commit message 是否真的符合规范。这就好比是我们创建了一套 JavaScript 的语法规范，还需要 ESLint 这样的功能来自动帮我们检查一样。
 
@@ -182,6 +183,6 @@ npm install --save-dev husky
 
 让我们来感受一下：
 
-![](https://img12.360buyimg.com/uba/jfs/t21337/289/681073221/88718/eac5bc39/5b15340bN8af4d42f.gif)
+<img src="https://img12.360buyimg.com/uba/jfs/t21337/289/681073221/88718/eac5bc39/5b15340bN8af4d42f.gif"/>
 
 还在等什么？赶快在自己的项目中启用 commitlint 吧！
