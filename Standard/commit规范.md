@@ -127,3 +127,61 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 Body部分的格式是固定的，必须写成This reverts commit &lt;hash>.，其中的hash是被撤销 commit 的 SHA 标识符。
 如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。
+
+
+
+现在规范是有了，但是还需要一个工具自动帮我们检测我们编写的 commit message 是否真的符合规范。这就好比是我们创建了一套 JavaScript 的语法规范，还需要 ESLint 这样的功能来自动帮我们检查一样。
+
+对于 commit message 来说，这个工具就是 [commitlint](http://marionebl.github.io/commitlint/#/)。
+
+## 在项目中启用 commitlint
+
+和 ESLint 一样的是，commitlint 自身只提供了检测的功能和一些最基础的规则。使用者需要根据这些规则配置出自己的规范。
+
+对于 Conventional Commits 规范，社区已经整理好了 `@commitlint/config-conventional` 包，我们只需要安装并启用它就可以了。
+
+首先安装 commitlint 以及 conventional 规范：
+
+```language-bash
+npm install --save-dev @commitlint/cli @commitlint/config-conventional
+```
+
+接着创建 `commitlint.config.js` 文件，并写入以下内容：
+
+```language-js
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+};
+```
+
+至此，commitlint 的配置就基本完成了。但目前我们还没有说何时来执行 commitlint。
+
+答案显而易见，在每次执行 `git commit` 的时候咯~
+
+为了可以在每次 commit 时执行 commitlint 检查我们输入的 message，我们还需要用到一个工具 —— [husky](https://github.com/typicode/husky)。
+
+husky 是一个增强的 git hook 工具。可以在 git hook 的各个阶段执行我们在 `package.json` 中配置好的 npm script。
+
+首先安装 husky：
+
+```language-bash
+npm install --save-dev husky
+```
+
+接着在 `package.json` 中配置 `commitmsg` 脚本：
+
+```language-json
+{
+  "scripts": {
+    "commitmsg": "commitlint -E GIT_PARAMS"
+  }
+}
+```
+
+至此就彻底配置完成啦。
+
+让我们来感受一下：
+
+![](https://img12.360buyimg.com/uba/jfs/t21337/289/681073221/88718/eac5bc39/5b15340bN8af4d42f.gif)
+
+还在等什么？赶快在自己的项目中启用 commitlint 吧！
