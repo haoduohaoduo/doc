@@ -231,7 +231,7 @@ collect 收集   | aggregate 聚集
 
 常量是在作用域内保持不变的值，一般使用final进行修饰。一般分为三种，全局常量（public static final修饰），类内常量（private static final 修饰）以及局部常量（方法内，或者参数中的常量），局部常量比较特殊，通常采用小驼峰命名即可。
 
-```language-java
+```java
 /**
  * 一个demo
  *
