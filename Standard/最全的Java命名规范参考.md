@@ -2,7 +2,7 @@
 
 每个公司都有不同的标准，目的是为了保持统一，减少沟通成本，提升团队研发效能。所以本文中是笔者结合阿里巴巴开发规范，以及工作中的见闻针对Java领域相关命名进行整理和总结，仅供参考。
 
-## 一，Java中的命名规范[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#106803877)
+## 一 Java中的命名规范
 
 好的命名能体现出代码的特征，含义或者是用途，让阅读者可以根据名称的含义快速厘清程序的脉络。不同语言中采用的命名形式大相径庭，Java中常用到的命名形式共有三种，既首字母大写的UpperCamelCase，首字母小写的lowerCamelCase以及全部大写的并用下划线分割单词的UPPER_CAMEL_UNSER_SCORE。通常约定，**类一般采用大驼峰命名，方法和局部变量使用小驼峰命名，而大写下划线命名通常是常量和枚举中使用。**
 
@@ -15,7 +15,7 @@
 常量名 |        全部大写，多个单词，用'_'分隔         |               CACHE_EXPIRED_TIME              
 方法  |               同变量               |        read(), readObject(), getById()        
 
-## 二，包命名[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#3468123903)
+## 二 包命名
 
 **包名**统一使用**小写**，**点分隔符**之间有且仅有一个自然语义的英文单词或者多个单词自然连接到一块（如 springframework，deepspace不需要使用任何分割）。包名统一使用单数形式，如果类命有复数含义，则可以使用复数形式。
 
@@ -29,7 +29,7 @@ indi（或onem ） | indi.发起者名.项目名.模块名.…… | 个体项目
     team     | team.团队名.项目名.模块名.……  |      团队项目，指由团队发起，并由该团队开发的项目，copyright属于该团队所有     
     顶级域名     |  com.公司名.项目名.模块名.……  |             公司项目，copyright由项目发起的公司所有             
 
-## 三，类命名[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#767063847)
+## 三 类命名
 
 **类名使用大驼峰命名形式**，类命通常时**名词或名词短语**，接口名除了用名词和名词短语以外，还可以使用形容词或形容词短语，如Cloneable，Callable等，表示实现该接口的类有某种功能或能力。对于测试类则以它要测试的类开头，以Test结尾，如HashMapTest。
 
@@ -48,11 +48,11 @@ indi（或onem ） | indi.发起者名.项目名.模块名.…… | 个体项目
 测试类     | Test结尾                               | UserServiceTest， 表示用来测试UserService类的                
 MVC分层   | Controller，Service，ServiceImpl，DAO后缀 | UserManageController，UserManageDAO                  
 
-## 四，方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#755746072)
+## 四 方法
 
 **方法命名采用小驼峰的形式**，首字小写，往后的每个单词首字母都要大写。 和类名不同的是，方法命名一般为**动词或动词短语**，与参数或参数名共同组成动宾短语，即动词 + 名词。一个好的函数名一般能通过名字直接获知该函数实现什么样的功能。
 
-### 4.1 返回真伪值的方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#3979372541)
+### 4.1 返回真伪值的方法
 
 注：Prefix-前缀，Suffix-后缀，Alone-单独使用
 
@@ -64,14 +64,14 @@ Prefix | should | 调用方执行某个命令或方法是**好还是不好**,**�
 Prefix | has    | 对象**是否持有**所期待的数据和属性                            | hasObservers 
 Prefix | needs  | 调用方**是否需要**执行某个命令或方法                           | needsMigrate 
 
-### 4.2 用来检查的方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#950532850)
+### 4.2 用来检查的方法
 
 单词       | 意义                              | 例             
 -------- | ------------------------------- | --------------
 ensure   | 检查是否为期待的状态，不是则抛出异常或返回error code | ensureCapacity
 validate | 检查是否为正确的状态，不是则抛出异常或返回error code | validateInputs
 
-### 4.3 按需求才执行的方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#1292419161)
+### 4.3 按需求才执行的方法
 
 位置     | 单词        | 意义                        | 例                     
 ------ | --------- | ------------------------- | ----------------------
@@ -82,7 +82,7 @@ Suffix | OrDefault | 尝试执行，失败时返回默认值             | getOr
 Suffix | OrElse    | 尝试执行、失败时返回实际参数中指定的值       | getOrElse             
 Prefix | force     | 强制尝试执行。error抛出异常或是返回值     | forceCreate, forceStop
 
-### 4.4 异步相关方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#2326799047)
+### 4.4 异步相关方法
 
 位置              | 单词           | 意义                     | 例                    
 --------------- | ------------ | ---------------------- | ---------------------
@@ -97,7 +97,7 @@ Prefix or Alone | start        | 同上                     | start, startJob
 Prefix or Alone | cancel       | 停止异步方法                 | cancel, cancelJob    
 Prefix or Alone | stop         | 同上                     | stop, stopJob        
 
-### 4.5 回调方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#1016650580)
+### 4.5 回调方法
 
 位置     | 单词     | 意义            | 例           
 ------ | ------ | ------------- | ------------
@@ -110,7 +110,7 @@ Prefix | post   | 同上            | postUpdate
 Prefix | did    | 同上            | didUpdate   
 Prefix | should | 确认事件是否可以发生时执行 | shouldUpdate
 
-### 4.6 操作对象生命周期的方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#2356212141)
+### 4.6 操作对象生命周期的方法
 
 单词         | 意义              | 例              
 ---------- | --------------- | ---------------
@@ -121,7 +121,7 @@ abandon    | 销毁的替代           | abandon
 destroy    | 同上              | destroy        
 dispose    | 同上              | dispose        
 
-### 4.7 与集合操作相关的方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#1617325822)
+### 4.7 与集合操作相关的方法
 
 单词       | 意义             | 例         
 -------- | -------------- | ----------
@@ -138,7 +138,7 @@ pop      | 从栈头取出并移除       | popJob
 peek     | 从栈头取出但不移除      | peekJob   
 find     | 寻找符合条件的某物      | findById  
 
-### 4.8 与数据相关的方法[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#3020291555)
+### 4.8 与数据相关的方法
 
 单词     | 意义                  | 例            
 ------ | ------------------- | -------------
@@ -158,7 +158,7 @@ apply  | 保存或应用               | applyChange
 clear  | 清除数据或是恢复到初始状态       | clearAll     
 reset  | 清除数据或是恢复到初始状态       | resetAll     
 
-### 4.9 成对出现的动词[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#725342471)
+### 4.9 成对出现的动词
 
 单词           | 意义            
 ------------ | --------------
@@ -217,15 +217,15 @@ abort 放弃     | quit 离开
 obsolete 废弃  | depreciate 废旧 
 collect 收集   | aggregate 聚集  
 
-## 五，变量&常量命名[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#3645736379)
+## 五 变量&常量命名
 
-### 5.1 变量命名[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#833227683)
+### 5.1 变量命名
 
 变量是指在程序运行中可以改变其值的量，包括成员变量和局部变量。变量名由多单词组成时，第一个单词的首字母小写，其后单词的首字母大写，俗称骆驼式命名法（也称驼峰命名法），如 computedValues，index、变量命名时，尽量简短且能清楚的表达变量的作用，命名体现具体的业务含义即可。
 
 变量名不应以下划线或美元符号开头，尽管这在语法上是允许的。变量名应简短且富于描述。变量名的选用应该易于记忆，即，能够指出其用途。尽量避免单个字符的变量名，除非是一次性的临时变量。pojo中的布尔变量，都不要加is(数据库中的布尔字段全都要加 is_ 前缀)。
 
-### 5.2 常量命名[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#3421632450)
+### 5.2 常量命名
 
 常量命名CONSTANT_CASE，一般采用全部大写（作为方法参数时除外），单词间用下划线分割。那么什么是常量呢？
 
@@ -274,12 +274,11 @@ public class HelloWorld {
 
 常量一般都有自己的业务含义,**不要害怕长度过长而进行省略或者缩写**。如，用户消息缓存过期时间的表示，那种方式更佳清晰，交给你来评判。
 
-## 通用命名规则[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#2702904165)
+## 通用命名规则
 
 1.  尽量不要使用拼音；杜绝拼音和英文混用。对于一些通用的表示或者难以用英文描述的可以采用拼音，一旦采用拼音就坚决不能和英文混用。  
 
     正例： BeiJing， HangZhou  
-
     反例： validateCanShu
 
 2.  命名过程中尽量不要出现特殊的字符，常量除外。
@@ -288,9 +287,9 @@ public class HelloWorld {
 
     如类名采用User4RedisDO，方法名getUserInfoFromRedis，convertJson2Map等。
 
-## 六，代码注解[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#381502029)
+## 六 代码注解
 
-### 6.1 注解的原则[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#2148366049)
+### 6.1 注解的原则
 
 好的命名增加代码阅读性，代码的命名往往有严格的限制。而注解不同，程序员往往可以自由发挥，单并不意味着可以为所欲为之胡作非为。优雅的注解通常要满足三要素。
 
@@ -311,11 +310,11 @@ getMessageById(id)
 
     注解应该随着代码的变动而改变，注解表达的信息要与代码中完全一致。通常情况下修改代码后一定要修改注解。
 
-### 6.2 注解格式[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#1929600345)
+### 6.2 注解格式
 
 注解大体上可以分为两种，一种是javadoc注解，另一种是简单注解。javadoc注解可以生成JavaAPI为外部用户提供有效的支持javadoc注解通常在使用IDEA，或者Eclipse等开发工具时都可以自动生成，也支持自定义的注解模板，仅需要对对应的字段进行解释。参与同一项目开发的同学，尽量设置成相同的注解模板。
 
-#### a. 包注解[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#2821115980)
+#### a. 包注解
 
 包注解在工作中往往比较特殊，通过包注解可以快速知悉当前包下代码是用来实现哪些功能，强烈建议工作中加上，尤其是对于一些比较复杂的包，包注解一般在包的根目录下，名称统一为package-info.java。
 
@@ -336,7 +335,7 @@ Copy```language-java
 package cn.mycookies.landingpagecheck;
 ```
 
-#### b. 类注接[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#808147847)
+#### b. 类注接
 
 javadoc注解中，每个类都必须有注解。
 
@@ -352,7 +351,7 @@ Copy```language-java
 */
 ```
 
-#### c. 属性注解[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#395830149)
+#### c. 属性注解
 
 在每个属性前面必须加上属性注释，通常有一下两种形式，至于怎么选择，你高兴就好，不过一个项目中要保持统一。
 
@@ -365,7 +364,7 @@ private String userName;
 private String password;
 ```
 
-#### d. 方法注释[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#3442359502)
+#### d. 方法注释
 
 在每个方法前面必须加上方法注释，对于方法中的每个参数，以及返回值都要有说明。
 
@@ -379,7 +378,7 @@ Copy```language-java
   */
 ```
 
-#### e. 构造方法注释[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#511855016)
+#### e. 构造方法注释
 
 在每个构造方法前面必须加上注释，注释模板如下：
 
@@ -410,6 +409,6 @@ String name;
  */
 ```
 
-## 总结[\#](https://www.cnblogs.com/liqiangchn/p/12000361.html#448682072)
+## 总结[\#]
 
 无论是命名和注解，他们的目的都是为了让代码和工程师进行对话，增强代码的可读性，可维护性。优秀的代码往往能够见名知意，注解往往是对命名的补充和完善。命名太南了！
